@@ -1,34 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Cartype:</strong>
-  <%= @car.cartype %>
-</p>
 
-<p>
-  <strong>Make:</strong>
-  <%= @car.make %>
-</p>
+<div class="jumbotron">
+  <h1 class="display-4">
+    <strong>
+      <%= @car.make %>
+      <%= @car.model %>
+    </strong>
+  </h1>
 
-<p>
-  <strong>Model:</strong>
-  <%= @car.model %>
-</p>
+  <h1 class="display-10">
+    <%= @car.cartype %>, <%= @car.seats %> Seater
+  </h1>
 
-<p>
-  <strong>Seats:</strong>
-  <%= @car.seats %>
-</p>
+ 
 
-<p>
-  <strong>Year:</strong>
-  <%= @car.year %>
-</p>
+  <p class="lead">Drive the car in a certain manner.</p>
+  <hr class="my-4">
 
-<p>
-  <strong>Serviced:</strong>
-  <%= @car.serviced %>
-</p>
+    <p> Last Serviced: <%= @car.serviced %> </p>
 
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+    <p> Car's Model Year: <%= @car.year %> </p>
+
+  <%= link_to 'Edit', edit_car_path(@car), class:"btn btn-primary btn-lg" %>
+
+  <%= link_to 'Go Back', cars_path, class:"btn btn-secondary btn-lg" %>
+  
+</div>

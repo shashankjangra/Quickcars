@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :cartype %>
-    <%= form.text_field :cartype %>
+    <%= form.text_field :cartype, class:"form-control", placeholder:"SUV" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :make %>
-    <%= form.text_field :make %>
+    <%= form.text_field :make, class:"form-control", placeholder:"Toyota" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :model %>
-    <%= form.text_field :model %>
+    <%= form.text_field :model, class:"form-control", placeholder:"Innova" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :seats %>
-    <%= form.number_field :seats %>
+    <%= form.number_field :seats, class:"form-control", placeholder:"7" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :year %>
-    <%= form.number_field :year %>
+    <%= form.number_field :year, class:"form-control", placeholder:"2019" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :serviced %>
-    <%= form.date_select :serviced %>
+    <%= form.date_select :serviced, class:"form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions form-group">
+    <%= form.submit class:'btn btn-primary' %>
   </div>
 <% end %>
