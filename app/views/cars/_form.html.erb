@@ -11,34 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= form.label :cartype %>
-    <%= form.text_field :cartype, class:"form-control", placeholder:"SUV" %>
+  <div class="field form-group row">
+    <%= form.label :cartype, class:"col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.text_field :cartype, class:"form-control", placeholder:"SUV" %>
+    </div>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :make %>
-    <%= form.text_field :make, class:"form-control", placeholder:"Toyota" %>
+  <div class="field form-group row">
+    <%= form.label :make, class:"col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.text_field :make, class:"form-control", placeholder:"Toyota" %>
+    </div>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :model %>
-    <%= form.text_field :model, class:"form-control", placeholder:"Innova" %>
+  <div class="field form-group row">
+    <%= form.label :model, class:"col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.text_field :model, class:"form-control", placeholder:"Innova" %>
+    </div>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :seats %>
-    <%= form.number_field :seats, class:"form-control", placeholder:"7" %>
+  <div class="field form-group row">
+    <%= form.label :seats, class:"col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.number_field :seats, class:"form-control", placeholder:"7" %>
+    </div>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :year %>
-    <%= form.number_field :year, class:"form-control", placeholder:"2019" %>
+  <div class="field form-group row">
+    <%= form.label :year, class:"col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.number_field :year, class:"form-control", placeholder:"2019" %>
+    </div>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :serviced %>
-    <%= form.date_select :serviced, class:"form-control" %>
+  <div class="field form-group row">
+    <%= form.label :serviced, class:"col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= form.date_select :serviced, class:"form-control" %>
+    </div>
   </div>
 
   <div class="actions form-group">
