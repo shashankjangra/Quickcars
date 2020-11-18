@@ -1,75 +1,49 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :update, :destroy]
+  # skip_before_action :verify_authenticity_token
 
-  # GET /cars
-  # GET /cars.json
   def index
-    @cars = Car.all
+      @cars = Car.all
   end
 
-  # GET /cars/1
-  # GET /cars/1.json
   def show
+      @car = Car.find(params[:id])
   end
 
-  # GET /cars/new
   def new
-    @car = Car.new
+      @car = Car.new
   end
 
-  # GET /cars/1/edit
   def edit
+      @car = Car.find(params[:id])
   end
 
-  # POST /cars
-  # POST /cars.json
   def create
-    @car = Car.new(car_params)
-
-    respond_to do |format|
+      @car = Car.new(car_params)
       if @car.save
-        format.html { redirect_to @car, notice: 'Car was successfully created.' }
-        format.json { render :show, status: :created, location: @car }
+          redirect_to @car     
       else
-        format.html { render :new }
-        format.json { render json: @car.errors, status: :unprocessable_entity }
+          render 'new'
       end
-    end
   end
 
-  # PATCH/PUT /cars/1
-  # PATCH/PUT /cars/1.json
   def update
-    respond_to do |format|
+      @car = Car.find(params[:id])
       if @car.update(car_params)
-        format.html { redirect_to @car, notice: 'Car was successfully updated.' }
-        format.json { render :show, status: :ok, location: @car }
+          redirect_to @car
       else
-        format.html { render :edit }
-        format.json { render json: @car.errors, status: :unprocessable_entity }
+          render 'edit'
       end
-    end
   end
 
-  # DELETE /cars/1
-  # DELETE /cars/1.json
   def destroy
-    @car = Car.find(params[:id])
-    @car.destroy
-    respond_to do |format|
-      format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      # debugger
+      @car = Car.find(params[:id])
+      @car.destroy
+      redirect_to cars_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_car
-      @car = Car.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def car_params
-      params.require(:car).permit(:cartype, :make, :model, :seats, :year, :serviced)
-    end
+  def car_params
+      params.require(:car).permit(:cartype, :make, :model, :year, :serviced, :seats, :instructions)
+  end
 end
