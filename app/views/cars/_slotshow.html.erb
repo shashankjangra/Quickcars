@@ -1,0 +1,19 @@
+<h2>Slots</h2>
+<% @car.slots.each do |slot| %>
+  <p>
+    <strong>From Date:</strong>
+    <%= slot.from_date %>
+  </p>
+ 
+  <p>
+    <strong>To Date:</strong>
+    <%= slot.to_date %>
+  </p>
+
+  <p>
+    <strong>Amount:</strong>
+    <%= slot.amount %>
+  </p>
+
+
+<% end %>

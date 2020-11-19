@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  no_slots: 1
+  from_date: 2020-11-18
+  to_date: 2020-11-18
+  amount: 1
+  requests: 1
+  request_approve: false
+  car: one
+
+two:
+  no_slots: 1
+  from_date: 2020-11-18
+  to_date: 2020-11-18
+  amount: 1
+  requests: 1
+  request_approve: false
+  car: two
