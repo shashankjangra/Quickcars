@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   # skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
       @cars = Car.all
@@ -44,7 +45,7 @@ class CarsController < ApplicationController
 
   private
   def car_params
-      params.require(:car).permit(:cartype, :make, :model, :year, :serviced, :seats, :instructions)
+      params.require(:car).permit(:cartype, :make, :model, :year, :serviced, :seats, :instructions, :user_id)
   end
 
   
