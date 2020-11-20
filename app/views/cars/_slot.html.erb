@@ -1,20 +1,24 @@
-<h2>Add a slot:</h2>
-<%= form_with(model: [ @car, @car.slots.build ], local: true) do |form| %>
 
-  <p>
-    <%= form.label :from_date %><br>
-    <%= form.date_select :from_date %>
-  </p>
-  <p>
-    <%= form.label :to_date %><br>
-    <%= form.date_select :to_date %>
-  </p>
-  <p>
-    <%= form.label :amount %><br>
-    <%= form.number_field :amount %>
-  </p>
+<% if car.user == current_user %>
+  <h2>Add a slot:</h2>
 
-  <p>
-    <%= form.submit %>
-  </p>
+  <%= form_with(model: [ @car, @car.slots.build ], local: true) do |form| %>
+
+    <p>
+      <%= form.label :from_date %><br>
+      <%= form.date_select :from_date %>
+    </p>
+    <p>
+      <%= form.label :to_date %><br>
+      <%= form.date_select :to_date %>
+    </p>
+    <p>
+      <%= form.label :amount %><br>
+      <%= form.number_field :amount %>
+    </p>
+
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
 <% end %>
