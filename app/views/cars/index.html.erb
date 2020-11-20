@@ -1,6 +1,6 @@
 
 
-<h1>All Cars</h1>
+<h1>All Listed Cars</h1>
 
 <table class="table table-striped table-hover table-bordered">
   <thead class="thead-dark">
@@ -25,11 +25,17 @@
         <td><%= car.year %></td>
         <td><%= car.serviced %></td>
         <td><%= link_to 'Show', car %></td>
+
+        <% if car.user == current_user %>
+
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td>
           <%# <%= debugger %>
           <%= link_to 'Destroy', car_path(car), method: :delete, data: { confirm: "Are you sure?" } %>
         </td>
+
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
