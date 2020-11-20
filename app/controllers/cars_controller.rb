@@ -1,15 +1,16 @@
 class CarsController < ApplicationController
-  # skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+    # skip_before_action :verify_authenticity_token
+    before_action :authenticate_user!, except: [:index, :show, :allcars]
+    before_action :correct_user, only: [:edit, :update, :destroy]
 
-  def index
-      @cars = Car.all
-  end
 
-  def show
-      @car = Car.find(params[:id])
-  end
+    def index
+        @cars = Car.all
+    end
+
+    def show
+        @car = Car.find(params[:id])
+    end
 
   def new
     #   @car = Car.new
