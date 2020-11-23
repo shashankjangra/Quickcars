@@ -3,6 +3,9 @@ class CarsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show, :allcars]
     before_action :correct_user, only: [:edit, :update, :destroy]
 
+    def allcars
+        @cars = Car.all
+    end
 
     def index
         @cars = Car.all
