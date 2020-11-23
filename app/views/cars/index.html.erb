@@ -1,9 +1,8 @@
+<%= render 'dashboard', car: @car %>
 
+<% if current_user.cars.size != 0 %>
 
 <h1>My Cars</h1>
-
-
-
 <table class="table table-striped table-hover table-bordered">
   <thead class="thead-dark">
     <tr>
@@ -16,7 +15,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @cars.each do |car| %>
       <% if car.user == current_user %>
@@ -28,22 +26,19 @@
         <td><%= car.year %></td>
         <td><%= car.serviced %></td>
         <td><%= link_to 'Details', car %></td>
-
-        
-
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td>
-          <%# <%= debugger %>
           <%= link_to 'Remove', car_path(car), method: :delete, data: { confirm: "Are you sure?" } %>
         </td>
-
         <% end %>
-
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
+
+
 <%= link_to 'New Car', new_car_path, class:"btn btn-primary" %>
+
+<% end %>

@@ -1,0 +1,11 @@
+<h2> Hello <%= current_user.email %>, Welcome to Quickcars </h2>
+
+<% if current_user.cars.size == 0 %>
+    <h3> You can now add a car or Browse cars to book them! </h3>    
+    <div>
+        <%= link_to 'Add a New Car', new_car_path, class:"btn btn-primary" %> <br>
+        
+        <h3> <%= link_to 'Browse Cars', allcars_cars_path, class:"btn btn-secondary" %> </h3>
+<% else %>
+    <h3> You have added <%= current_user.cars.size %>  Cars. </h3>
+<% end %>

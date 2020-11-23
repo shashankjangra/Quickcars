@@ -1,9 +1,13 @@
 class CarsController < ApplicationController
     # skip_before_action :verify_authenticity_token
     before_action :authenticate_user!, except: [:index, :show, :allcars]
-    before_action :correct_user, only: [:edit, :update, :destroy]
+    before_action :correct_user, only: [:edit, :update, :destroy, :dashboard]
 
     def allcars
+        @cars = Car.all
+    end
+
+    def dashboard
         @cars = Car.all
     end
 
