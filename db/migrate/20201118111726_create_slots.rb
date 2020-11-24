@@ -8,7 +8,6 @@ class CreateSlots < ActiveRecord::Migration[6.0]
       t.integer :requests
       t.boolean :request_approve
       t.references :car, null: false, foreign_key: true
-
       t.timestamps
     end
   end

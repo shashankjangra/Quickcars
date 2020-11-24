@@ -9,9 +9,6 @@
   <h1 class="display-10">
     <%= @car.cartype %>, <%= @car.seats %> Seater
   </h1>
-
- 
-
   <p class="lead">Drive the car in a certain manner.</p>
   <hr class="my-4">
 
@@ -19,10 +16,12 @@
 
     <p> Car's Model Year: <%= @car.year %> </p>
 
-  <%= link_to 'Edit', edit_car_path(@car), class:"btn btn-primary btn-lg" %>
-
-  <%= link_to 'Go Back', cars_path, class:"btn btn-secondary btn-lg" %>
-  
+  <% if @car.user == current_user %>
+    <%= link_to 'Edit', edit_car_path(@car), class:"btn btn-primary btn-lg" %>
+    <%= link_to 'Go Back', cars_path, class:"btn btn-secondary btn-lg" %>
+  <% else %>
+    <%= link_to 'Go Back', allcars_cars_path, class:"btn btn-secondary btn-lg" %>
+  <% end %>
 </div>
 
 <%= render 'slotshow', car: @car %>

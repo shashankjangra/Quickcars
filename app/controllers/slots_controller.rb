@@ -4,7 +4,9 @@ class SlotsController < ApplicationController
         @slot = @car.slots.create(slot_params)
         redirect_to cars_path(@car)
     end
-
+    
+    def slotbook
+    end
 
     private
         def slot_params
