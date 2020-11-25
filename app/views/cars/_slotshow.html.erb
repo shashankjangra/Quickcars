@@ -14,6 +14,16 @@
     <strong>Amount:</strong>
     <%= slot.amount %>
   </p>
+
+  <% if @car.user == current_user %>
+    <p>
+      <%= link_to 'Remove slot', car_slot_path(slot_id: slot.id, car_id: @car.id) , method: :delete, data: { confirm: "Are you sure?" } %>
+    </p>
+  <% end %>
+
+
 <% end %>
+
+
 
 <%= render 'slotbook', slot: @slot %>

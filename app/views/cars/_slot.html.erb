@@ -1,5 +1,5 @@
 
-<% if car.user == current_user %>
+<% if @car.user == current_user %>
   <h2>Add a slot:</h2>
 
   <%= form_with(model: [ @car, @car.slots.build ], local: true) do |form| %>
@@ -16,6 +16,8 @@
       <%= form.label :amount %><br>
       <%= form.number_field :amount %>
     </p>
+
+    
 
     <p>
       <%= form.submit %>
