@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
     # skip_before_action :verify_authenticity_token
+    # CODE_COMMENT: Why is this there?
     before_action :authenticate_user!, except: [:index, :show, :allcars]
     before_action :correct_user, only: [:edit, :update, :destroy, :dashboard]
 
