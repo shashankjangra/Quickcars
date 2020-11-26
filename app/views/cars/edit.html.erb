@@ -1,6 +1,11 @@
 <h1>Edit the listing</h1>
 <br>
 <%= render 'form', car: @car %>
+<%
+=begin%>
+  It is nice you are using one form for create and edit
+<%
+=end%>
 
 <%= link_to 'Show', @car, class:"btn btn-primary" %> |
 <%= link_to 'Back', cars_path, class:"btn btn-secondary" %>
