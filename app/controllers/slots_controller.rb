@@ -11,7 +11,7 @@ class SlotsController < ApplicationController
         redirect_to cars_path(@car)
     end
     
-    def slotbook
+    def slotedit
         @car = Car.find(params[:car_id])
         @slot = @car.slot.update(slot_params)
         if @slot.update(slot_params)

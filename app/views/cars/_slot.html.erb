@@ -3,7 +3,7 @@
   <h2>Add a slot:</h2>
 
   <%= form_with(model: [ @car, @car.slots.build ], local: true) do |form| %>
-
+  
     <p>
       <%= form.label :from_date %><br>
       <%= form.date_select :from_date %>

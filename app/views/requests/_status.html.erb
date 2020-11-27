@@ -1,0 +1,7 @@
+<h6> Book this slot! </h6>
+<% @car.slots.each do |slot| %>
+    <%# <% @slot.requests do |request| %> %>
+        
+        <%= link_to('Book this slot', "/cars/#{@car.id}/slots/#{slot.id}/requests/new") %>
+    <%# <% end %> %>
+<% end %>
