@@ -1,5 +1,10 @@
 <h2> Hello <%= current_user.email %>, Welcome to Quickcars </h2>
 
+<%
+=begin%>
+  To check if the collection is empty use "any" method, instead of comparing with integer
+<%
+=end%>
 <% if current_user.cars.size == 0 %>
     <h3> You can now add a car or Browse cars to book them! </h3>    
     <div>

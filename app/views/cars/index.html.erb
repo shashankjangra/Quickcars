@@ -4,7 +4,11 @@ Please keep the code aligned for better readability
 <%
 =end%>
 <%= render 'dashboard', car: @car %>
-
+<%
+=begin%>
+It is good to do the comparision the rails way
+<%
+=end%>
 <% if current_user.cars.size != 0 %>
 
 <h1>My Cars</h1>
