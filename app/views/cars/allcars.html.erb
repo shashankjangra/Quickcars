@@ -1,4 +1,11 @@
 <h1>All Listed Cars</h1>
+<% req = Request.all %>
+<% gaadi = [] %>
+<% req.each do |r| %>
+  <% s = r.slot_id %>
+  <% car = Slot.all.find(s).car_id %>
+  <% gaadi.push(car) %>
+<% end %>
 
 <table class="table table-striped table-hover table-bordered">
   <thead class="thead-dark">
@@ -13,15 +20,16 @@
 
   <tbody>
     <% @cars.each do |car| %>
-      <tr>
-        <td><%= car.cartype %></td>
-        <td><%= car.seats %></td>
-        <td><%= car.year %></td>
-        <td><%= car.serviced %></td>
-        <td><%= link_to 'Details', car %></td>
-      </tr>
+          <% if not gaadi.include? car.id %>
+            <tr>
+              <td><%= car.cartype %></td>
+              <td><%= car.seats %></td>
+              <td><%= car.year %></td>
+              <td><%= car.serviced %></td>
+              <td><%= link_to 'Details', car %></td>
+            </tr>
+          <% end %>
     <% end %>
   </tbody>
 </table>
-
 <br>

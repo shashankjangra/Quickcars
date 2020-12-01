@@ -9,6 +9,7 @@ class CarsController < ApplicationController
 
     def dashboard
         @cars = Car.all
+        @carrequests = Request.all
     end
 
     def index
