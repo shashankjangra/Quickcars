@@ -2,9 +2,11 @@
 <% req = Request.all %>
 <% gaadi = [] %>
 <% req.each do |r| %>
-  <% s = r.slot_id %>
-  <% car = Slot.all.find(s).car_id %>
-  <% gaadi.push(car) %>
+  <% if r.status == "booked" %>
+    <% s = r.slot_id %>
+    <% car = Slot.all.find(s).car_id %>
+    <% gaadi.push(car) %>
+  <% end %>
 <% end %>
 
 <table class="table table-striped table-hover table-bordered">

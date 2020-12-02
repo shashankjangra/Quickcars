@@ -21,5 +21,15 @@
     </p>
   <% else %>
     <%= render 'requests/status', request: @new, object: @slot %>
+    <% req = Request.all %>
+    <% if req == [] %>
+      <%= link_to('Book this slot', "/cars/#{@car.id}/slots/#{slot.id}/requests/new") %>
+      <% else %>
+        <% req.each do |r| %>
+          <% if r.user != current_user %>
+            <%= link_to('Book this slot', "/cars/#{@car.id}/slots/#{slot.id}/requests/new") %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
-<% end %>
