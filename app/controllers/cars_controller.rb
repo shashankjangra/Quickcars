@@ -19,51 +19,51 @@ class CarsController < ApplicationController
         @car = Car.find(params[:id])
     end
 
-  def new
+    def new
     #   @car = Car.new
-      @car = current_user.cars.build
-  end
+        @car = current_user.cars.build
+    end
 
-  def edit
-      @car = Car.find(params[:id])
-  end
+    def edit
+        @car = Car.find(params[:id])
+    end
 
-  def create
+    def create
     #   @car = Car.new(car_params)
-    @car = current_user.cars.build(car_params)
-      if @car.save
-          redirect_to @car     
-      else
-          render 'new'
-      end
-  end
+        car = current_user.cars.build(car_params)
+        debugger
+        car.save
+        debugger
+        if car.save
+            redirect_to car     
+        else
+            render 'new'
+        end
+    end
 
-  def update
-      @car = Car.find(params[:id])
-      if @car.update(car_params)
-          redirect_to @car
-      else
-          render 'edit'
-      end
-  end
+    def update
+        @car = Car.find(params[:id])
+        if @car.update(car_params)
+            redirect_to @car
+        else
+            render 'edit'
+        end
+    end
 
-  def destroy
-      # debugger
-      @car = Car.find(params[:id])
-      @car.destroy
-      redirect_to cars_path
-  end
+    def destroy
+        debugger
+        @car = Car.find(params[:id])
+        @car.destroy
+        redirect_to cars_path
+    end
 
-  def correct_user
+    def correct_user
         @car = current_user.cars.find_by(id: params[:id])
         redirect_to cars_path, notice: "Not authorized to Edit this Car" if @car.nil?
-  end
+    end
 
-
-  private
-  def car_params
-      params.require(:car).permit(:cartype, :make, :model, :year, :serviced, :seats, :instructions, :user_id)
-  end
-
-  
+    private
+    def car_params
+        params.require(:car).permit(:cartype, :make, :model, :year, :serviced, :seats, :instructions, :user_id)
+    end
 end
