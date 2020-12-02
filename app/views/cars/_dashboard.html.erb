@@ -18,7 +18,7 @@
         </table>   
     <% end %>
 <% end %>
-<% if current_user.cars.size == 0 %>
+<% if current_user.cars.none? %>
     <h3> You can now add a car or Browse cars to book them! </h3>    
     <div>
         <%= link_to 'Add a New Car', new_car_path, class:"btn btn-primary" %> <br>
