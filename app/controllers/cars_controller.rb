@@ -3,7 +3,7 @@ class CarsController < ApplicationController
     before_action :correct_user, only: [:edit, :update, :destroy, :dashboard]
 
     def allcars
-        @cars = Car.all
+        @cars = Car.all.limit(10)
     end
 
     def dashboard

@@ -20,7 +20,6 @@
       <%= link_to 'Remove slot', car_slot_path(slot_id: slot.id, car_id: @car.id) , method: :delete, data: { confirm: "Are you sure?" } %>
     </p>
   <% else %>
-    <%= render 'requests/status', request: @new, object: @slot %>
     <% req = Request.all %>
     <% if req == [] %>
       <%= link_to('Book this slot', "/cars/#{@car.id}/slots/#{slot.id}/requests/new") %>
