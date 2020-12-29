@@ -17,6 +17,7 @@ class CarsController < ApplicationController
 
     def show
         @car = Car.find(params[:id])
+        # Car.where(:id => 13).pluck(:cartype)
     end
 
     def new
@@ -29,8 +30,9 @@ class CarsController < ApplicationController
     end
 
     def create
-    #   @car = Car.new(car_params)
-        car = current_user.cars.build(car_params)
+        debugger
+        # @car = Car.new(car_params)
+        car = current_user.cars.new(car_params)
         debugger
         car.save
         debugger
@@ -53,7 +55,9 @@ class CarsController < ApplicationController
     def destroy
         debugger
         @car = Car.find(params[:id])
+        debugger
         @car.destroy
+        debugger
         redirect_to cars_path
     end
 
@@ -64,6 +68,6 @@ class CarsController < ApplicationController
 
     private
     def car_params
-        params.require(:car).permit(:cartype, :make, :model, :year, :serviced, :seats, :instructions, :user_id)
+        params.require(:car).permit(:cartype, :make, :model, :year, :serviced, :seats)
     end
 end
